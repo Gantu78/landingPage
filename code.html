@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EasyPark | Urban Parking Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ffb4a1",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#edeeef",
+                    "inverse-surface": "#2e3132",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "on-secondary-container": "#646464",
+                    "surface-tint": "#004ced",
+                    "surface-dim": "#d9dadb",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-fixed": "#ffdbd2",
+                    "on-background": "#191c1d",
+                    "on-primary-fixed": "#001452",
+                    "background": "#f8f9fa",
+                    "on-tertiary-container": "#ffddd5",
+                    "on-tertiary-fixed": "#3c0800",
+                    "on-secondary-fixed-variant": "#474747",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#0052ff",
+                    "on-primary-fixed-variant": "#0038b6",
+                    "on-surface-variant": "#434656",
+                    "on-primary-container": "#dfe3ff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-low": "#f3f4f5",
+                    "primary-fixed-dim": "#b7c4ff",
+                    "surface": "#f8f9fa",
+                    "outline": "#737688",
+                    "on-surface": "#191c1d",
+                    "secondary-container": "#e2e2e2",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-fixed": "#dde1ff",
+                    "error": "#ba1a1a",
+                    "primary": "#003ec7",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#952200",
+                    "tertiary-container": "#bf3003",
+                    "secondary-fixed": "#e2e2e2",
+                    "secondary": "#5e5e5e",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c3c5d9",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f8f9fa",
+                    "on-tertiary-fixed-variant": "#891e00",
+                    "inverse-primary": "#b7c4ff",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .primary-gradient { background: linear-gradient(135deg, #003ec7 0%, #0052ff 100%); }
+    </style>
+</head>
+<body class="antialiased">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center h-full">
+<img alt="EasyPark Logo" class="h-9 w-auto object-contain" src="image.png"/>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-blue-700 dark:text-blue-300 font-semibold border-b-2 border-blue-600 py-1 transition-colors duration-200" href="#">How it Works</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-200" href="#">For Owners</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-200" href="#">Cars</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-200" href="#">Bookings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-all scale-95 active:opacity-80">Sign In</button>
+<button class="primary-gradient text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg hover:shadow-blue-200/50 transition-all scale-100 active:scale-95">Join Now</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden bg-surface">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 scale-105" data-alt="Modern architectural clean city street with premium parking spaces under a bright clear sky, minimal urban aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ00BnP5qz8cnbGNjpehRr1JjMDpqnzV_00AMjiC046ZzAFWoThh_vo0IJmLSBYf6rEDHQNXDJzko3cNWguBUQ85aupcV-1dc14-kReDl4u_2RtXsBMym8muCsmckaLxXYBukbgJbaz5uvGMNvBYPj3f1Mb1TXnPV5LZJ55xof8RHvRFqqXLTiKK7NP83HoyLAOIcnjTvSF_8U7xoZEcAozlX-r5D5ftuBdqA2aVi6o1Le-Kgwj91OWH_ciUZsIq17XB7pyVW5fQ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8 space-y-8">
+<div class="inline-flex items-center space-x-2 bg-primary-fixed px-4 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">local_parking</span>
+<span class="text-xs font-bold tracking-widest text-primary uppercase font-body">Urban Concierge 1.0</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-extrabold font-headline leading-[0.95] tracking-tight text-on-surface">
+                        Realiza tu reserva <br/> <span class="text-primary">antes de llegar</span> al lugar
+                    </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                        La forma más inteligente de parquear o rentar tu espacio. Gestión de activos urbanos con precisión arquitectónica.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="primary-gradient text-white px-10 py-5 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 group">
+<span>Encontrar Parqueo</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-surface-container-highest text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-white transition-colors flex items-center justify-center">
+                            Renta tu Espacio
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof: Logos -->
+<section class="py-10 border-b border-outline-variant/20 bg-surface">
+    <div class="max-w-7xl mx-auto px-6">
+        <p class="text-center text-sm font-bold text-outline uppercase tracking-widest mb-6">Respaldado por líderes en movilidad y tecnología</p>
+        <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <!-- Simulating Logos with Text/Icons for MVP -->
+            <div class="flex items-center space-x-2"><span class="material-symbols-outlined text-3xl">apartment</span><span class="font-bold text-xl font-headline">CityTech</span></div>
+            <div class="flex items-center space-x-2"><span class="material-symbols-outlined text-3xl">security</span><span class="font-bold text-xl font-headline">SecurePark</span></div>
+            <div class="flex items-center space-x-2"><span class="material-symbols-outlined text-3xl">electric_car</span><span class="font-bold text-xl font-headline">EcoDrive</span></div>
+            <div class="flex items-center space-x-2"><span class="material-symbols-outlined text-3xl">account_balance</span><span class="font-bold text-xl font-headline">UrbanaCorp</span></div>
+        </div>
+    </div>
+</section>
+<!-- Dual Path Section -->
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-1 px-1 bg-surface-container-low rounded-3xl overflow-hidden">
+<!-- Conductores -->
+<div class="bg-surface-container-lowest p-12 md:p-20 flex flex-col justify-between group hover:bg-primary transition-colors duration-500">
+<div>
+<span class="material-symbols-outlined text-5xl text-primary group-hover:text-white mb-8 transition-colors" data-icon="directions_car">directions_car</span>
+<h3 class="text-4xl font-extrabold font-headline mb-6 group-hover:text-white transition-colors">Conductores</h3>
+<p class="text-lg text-on-surface-variant group-hover:text-primary-fixed-dim transition-colors leading-relaxed">
+                                Busca, reserva y parquea sin estrés. Gestiona tus vehículos registrados y accede a tarifas preferenciales en el corazón de la ciudad.
+                            </p>
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center font-bold text-primary group-hover:text-white space-x-2" href="#">
+<span>Ver mis vehículos</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</div>
+<!-- Arrendatarios -->
+<div class="bg-surface-container-lowest p-12 md:p-20 flex flex-col justify-between group hover:bg-tertiary transition-colors duration-500">
+<div>
+<span class="material-symbols-outlined text-5xl text-tertiary group-hover:text-white mb-8 transition-colors" data-icon="real_estate_agent">real_estate_agent</span>
+<h3 class="text-4xl font-extrabold font-headline mb-6 group-hover:text-white transition-colors">Arrendatarios</h3>
+<p class="text-lg text-on-surface-variant group-hover:text-tertiary-fixed transition-colors leading-relaxed">
+                                Convierte tu espacio en ingresos. Gestiona tus lugares y reservas fácilmente con nuestro panel de control de alta precisión.
+                            </p>
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center font-bold text-tertiary group-hover:text-white space-x-2" href="#">
+<span>Listar mi espacio</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid (Bento Style) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="text-sm font-bold tracking-widest text-primary uppercase font-body mb-4">Features Overview</h2>
+<p class="text-5xl font-extrabold font-headline text-on-surface">Arquitectura de Control</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+<!-- Feature 1: Gestión de Carros -->
+<div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-3xl flex flex-col justify-between shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="max-w-md">
+<h4 class="text-3xl font-bold font-headline mb-4">Gestión de Carros</h4>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                                    Registra y visualiza tus vehículos con un solo toque. Soporte para múltiples matrículas y perfiles de conducción.
+                                </p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="car_repair">car_repair</span>
+</div>
+<div class="flex space-x-4">
+<div class="px-4 py-2 bg-surface-container rounded-full text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tesla Model 3</div>
+<div class="px-4 py-2 bg-surface-container rounded-full text-xs font-bold text-on-surface-variant uppercase tracking-wider">BMW X5</div>
+<div class="px-4 py-2 bg-primary-fixed rounded-full text-xs font-bold text-primary uppercase tracking-wider">+ Agregar</div>
+</div>
+</div>
+<!-- Feature 2: Availability Heatmap -->
+<div class="md:col-span-4 bg-surface-container-lowest p-10 rounded-3xl flex flex-col justify-between shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="location_on">location_on</span>
+<div>
+<h4 class="text-2xl font-bold font-headline mb-2">Espacios de Parqueo</h4>
+<p class="text-on-surface-variant text-sm">Crea y publica tus lugares disponibles en segundos.</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1.5 bg-secondary-fixed px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Available</span>
+</div>
+<div class="flex items-center space-x-1.5 bg-secondary-fixed px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Limited</span>
+</div>
+</div>
+</div>
+<!-- Feature 3: Control Total -->
+<div class="md:col-span-4 bg-primary-container p-10 rounded-3xl flex flex-col justify-between text-white shadow-xl">
+<span class="material-symbols-outlined text-4xl" data-icon="bolt">bolt</span>
+<div>
+<h4 class="text-2xl font-bold font-headline mb-2">Control Total</h4>
+<p class="text-primary-fixed/80 text-sm">Cancela reservas con un solo clic. Sin fricciones, solo resultados.</p>
+</div>
+<button class="bg-white text-primary font-bold py-3 rounded-xl hover:bg-primary-fixed transition-colors">
+                            Gestionar Perfil
+                        </button>
+</div>
+<!-- Visual Decorative Block -->
+<div class="md:col-span-8 relative rounded-3xl overflow-hidden shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Cinematic shot of a minimalist luxury garage with clean lines and soft overhead lighting, showcasing architectural precision" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCORResLIcqvuHw2maRdQWxRohKMxZC_KTQ6q8YsUusE8yVfJeeSpYIwKZfLsm0fvtDz49eVDQfeMQRb2sieVwA_3L2mN3PcmJ4vWsEAR5ifYGEP95mqcxyPv3cwgWQIblvxmY45P9-k0kXGyZPtEVFkf_RsPjbtKHGLKmekdVO2H1MfE6vI122cWzveCEgleuEsGADxjYZy4Y2iMY5yMIugy1lkRDaOeIHmJ1fX_N9LR0l8NB2AO3mWb43WB-3_PeI56qEhg8Omw"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-grayscale-[0.5]"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<p class="text-4xl font-headline font-extrabold">Diseñado para la Ciudad Moderna</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Availability UI Section -->
+<section class="py-24 bg-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-2xl relative border border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<h5 class="text-xl font-bold font-headline">Nearby Hotspots</h5>
+<span class="material-symbols-outlined text-outline">tune</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-xl font-bold text-primary">P1</div>
+<div>
+<p class="font-bold">Calle Principal #45</p>
+<p class="text-xs text-on-surface-variant">2.4km • $15/hr</p>
+</div>
+</div>
+<div class="flex items-center space-x-1.5 px-3 py-1 rounded-full border border-outline-variant/30">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+<span class="text-[10px] font-bold uppercase">Available</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-xl font-bold text-primary">P2</div>
+<div>
+<p class="font-bold">Avenida Central</p>
+<p class="text-xs text-on-surface-variant">0.8km • $22/hr</p>
+</div>
+</div>
+<div class="flex items-center space-x-1.5 px-3 py-1 rounded-full border border-outline-variant/30">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-bold uppercase">Limited</span>
+</div>
+</div>
+</div>
+<div class="mt-10 h-48 bg-surface-container-low rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Digital map visualization with blue location markers and clean topographic lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrabo47Lzd2SIEZQXRWIO57jyFX_fEH0cXn7FyT5JP3PXw8VeLpvkkUPxaPWV9gqiEqUiZZTw87aOFDFFGiwTwGtGFV1RjcXzvNlvpsFASkeafAqPPYS4J7_wZ64tSA0BZt3zC0KmGXi6SJjAjIKmz9g8uFwFn6zsU1JH6K5HCwLGYSYOMDeaZEWx-rlyps0PrT69Y3IsB66ccKRWWsXP4Eh1aYbYHZ-kmpSnGzjdTboC2Aiw4I0yyvcue4e7A1IjNfuNPxthKdg"/>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-sm font-bold tracking-widest text-primary uppercase font-body mb-6">Transparency First</h2>
+<h3 class="text-5xl font-extrabold font-headline mb-8 leading-tight">Visualiza tu destino en tiempo real</h3>
+<p class="text-xl text-on-surface-variant mb-10 leading-relaxed font-body">
+                        Nuestro sistema de "Availability Heatmap" te permite ver la ocupación de cualquier zona antes de siquiera encender el motor. Ahorra tiempo, combustible y estrés.
+                    </p>
+<ul class="space-y-6">
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">speed</span>
+<div>
+<p class="font-bold">Reserva en 3 clics</p>
+<p class="text-on-surface-variant text-sm">Flujo optimizado para máxima eficiencia.</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">verified_user</span>
+<div>
+<p class="font-bold">Seguridad Garantizada</p>
+<p class="text-on-surface-variant text-sm">Espacios verificados por nuestro equipo local.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Social Proof: Testimonials -->
+<section class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-sm font-bold tracking-widest text-primary uppercase font-body mb-4">Testimonios</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold font-headline text-on-surface">Lo que dicen nuestros usuarios</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+                <div class="flex text-amber-400 mb-4">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-on-surface-variant font-body mb-6 leading-relaxed">"Como conductor que trabaja en el centro, EasyPark me ha devuelto 40 minutos diarios de vida. Saber que mi espacio está asegurado no tiene precio."</p>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary font-bold text-lg">JC</div>
+                    <div>
+                        <p class="font-bold text-on-surface">Juan Carlos M.</p>
+                        <p class="text-sm text-on-surface-variant">Conductor Frecuente</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+                <div class="flex text-amber-400 mb-4">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-on-surface-variant font-body mb-6 leading-relaxed">"Tenía un espacio vacío en mi edificio la mitad del día. Ahora genero ingresos extra sin hacer absolutamente nada más que aceptar reservas desde la app."</p>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold text-lg">AR</div>
+                    <div>
+                        <p class="font-bold text-on-surface">Ana Ramírez</p>
+                        <p class="text-sm text-on-surface-variant">Propietaria</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10 md:col-span-2 lg:col-span-1">
+                <div class="flex text-amber-400 mb-4">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+                </div>
+                <p class="text-on-surface-variant font-body mb-6 leading-relaxed">"La interfaz es ridículamente fácil de usar. Me encanta el mapa de calor para ver dónde hay parqueo antes de salir de la oficina."</p>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-secondary font-bold text-lg">LM</div>
+                    <div>
+                        <p class="font-bold text-on-surface">Luis Martínez</p>
+                        <p class="text-sm text-on-surface-variant">Usuario Beta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-surface border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-5">
+<h2 class="text-4xl md:text-5xl font-extrabold font-headline text-on-surface mb-6 leading-tight">
+                            Preguntas frecuentes y respuestas
+                        </h2>
+<p class="text-on-surface-variant text-lg font-body leading-relaxed max-w-sm">
+                            Encuentra respuestas a preguntas comunes sobre cómo nuestra plataforma puede ayudarte hoy mismo.
+                        </p>
+</div>
+<div class="lg:col-span-7">
+<div class="space-y-2">
+<!-- FAQ Item 1 -->
+<div class="group border-b border-outline-variant/30 py-6 flex justify-between items-center cursor-pointer hover:border-primary transition-colors">
+<span class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors">¿Cómo funciona la reserva anticipada?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+</div>
+<!-- FAQ Item 2 -->
+<div class="group border-b border-outline-variant/30 py-6 flex justify-between items-center cursor-pointer hover:border-primary transition-colors">
+<span class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors">¿Es seguro rentar mi espacio de parqueo?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+</div>
+<!-- FAQ Item 3 -->
+<div class="group border-b border-outline-variant/30 py-6 flex justify-between items-center cursor-pointer hover:border-primary transition-colors">
+<span class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors">¿Cómo puedo cancelar una reserva?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+</div>
+<!-- FAQ Item 4 -->
+<div class="group border-b border-outline-variant/30 py-6 flex justify-between items-center cursor-pointer hover:border-primary transition-colors">
+<span class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors">¿Qué pasa si el espacio está ocupado al llegar?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+</div>
+<!-- FAQ Item 5 -->
+<div class="group border-b border-outline-variant/30 py-6 flex justify-between items-center cursor-pointer hover:border-primary transition-colors">
+<span class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors">¿Cómo se procesan los pagos?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Capture / CTA Section -->
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary z-0"></div>
+    <div class="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuCORResLIcqvuHw2maRdQWxRohKMxZC_KTQ6q8YsUusE8yVfJeeSpYIwKZfLsm0fvtDz49eVDQfeMQRb2sieVwA_3L2mN3PcmJ4vWsEAR5ifYGEP95mqcxyPv3cwgWQIblvxmY45P9-k0kXGyZPtEVFkf_RsPjbtKHGLKmekdVO2H1MfE6vI122cWzveCEgleuEsGADxjYZy4Y2iMY5yMIugy1lkRDaOeIHmJ1fX_N9LR0l8NB2AO3mWb43WB-3_PeI56qEhg8Omw')] bg-cover bg-center opacity-10 mix-blend-overlay z-0"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <h2 class="text-4xl md:text-6xl font-extrabold font-headline text-white mb-6 leading-tight">
+            Sé de los primeros en experimentar el futuro del parqueo
+        </h2>
+        <p class="text-primary-fixed/90 text-xl font-body mb-10 max-w-2xl mx-auto">
+            Únete a nuestra lista de espera exclusiva. Cupos limitados para nuestra fase Beta cerrada en tu ciudad.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a la lista de espera!');">
+            <input type="email" placeholder="Tu correo electrónico" required class="flex-1 px-6 py-4 rounded-xl border-none focus:ring-4 focus:ring-primary-fixed bg-white text-on-surface font-body text-lg shadow-lg outline-none" />
+            <button type="submit" class="bg-surface-container-highest text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-lg active:scale-95 whitespace-nowrap">
+                Unirme a la lista
+            </button>
+        </form>
+        <p class="text-primary-fixed/60 text-sm mt-4 font-body">Sin spam. Te notificaremos solo cuando lancemos.</p>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200/20 py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="md:col-span-1">
+<div class="mb-6">
+<img alt="EasyPark Logo" class="h-7 w-auto object-contain" src="image.png"/>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                        Liderando la revolución del parqueo inteligente con diseño y tecnología de punta.
+                    </p>
+</div>
+<div>
+<h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-400">Plataforma</h6>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">How it Works</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Cars</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Bookings</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-400">Compañía</h6>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">For Owners</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Support</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6 text-sm uppercase tracking-widest text-slate-400">Legal</h6>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Terms</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors text-sm" href="#">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200/50 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs tracking-wide">
+<div>© 2024 EasyPark. All rights reserved.</div>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<span class="hover:text-blue-600 cursor-pointer">Twitter</span>
+<span class="hover:text-blue-600 cursor-pointer">LinkedIn</span>
+<span class="hover:text-blue-600 cursor-pointer">Instagram</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
